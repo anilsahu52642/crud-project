@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>django crud</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'mystyle.css' %}">
+</head>
+
+<body>
+    <h1>crud project</h1>
+
+    <div class='container divclass1'>
+
+        <form id='form1' method='POST' action="">
+        {% csrf_token %}
+            {{form.as_p}}
+            <input type='submit' value='add' class='btn btn-info'>
+            <input type='reset' value='reset' class='btn btn-success'>
+        </form>
+        <span>
+        {% if messages %}
+        {% for m in messages %}
+        {{m}}
+        {% endfor %}
+
+        {% endif %}
+    </span>
+    <a href="{% url 'createandshow' %}" class='btn btn-secondary my-2'>home</a>
+
+    </div>
+    
+    <div class='container divclass2'>
+        <table>
+            <thread id='trow1'>
+                <tr>
+                    <th class='th1'>roll</th>
+                    <th class='th2'>id</th>
+                    <th class='th3'>name</th>
+                    <th class='th3'>email</th>
+                    <th class='th4'>password</th>
+                    <th class='th5'>action</th>
+                </tr>
+            </thread>
+            <tbody>
+                {% for s in studdata %}
+                <tr>
+                    <td>{{s.roll}}</td>
+                    <td>{{s.id}}</td>
+                    <td>{{s.name}}</td>
+                    <td>{{s.email}}</td>
+                    <td>{{s.password}}</td>
+                    <td>
+                        <a href="{% url 'deletedata' s.pk %}" class='btn btn-sm btn-danger'>delete</a>
+                        <a href="{% url 'updatedata' s.pk %}" class='btn btn-sm btn-primary'>update</a>
+
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
