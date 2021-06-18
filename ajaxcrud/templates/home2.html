@@ -16,15 +16,14 @@
     <div id='divid1'>
     <h1>crud project</h1>
     <span id='divid2'>
-        <a href="/create2" id='butid1' value="">crud using Ajax</a>
+        <a href="/create" id='butid2' value="">crud using Django</a>
 
 
     </span>
     </div>
-    
     <div class='container divclass1'>
 
-        <form id='form1' method='POST' action="" novalidate>
+        <form id='form1' method='POST' action="">
         {% csrf_token %}
             {{form.as_p}}
             <input type='submit' value='add' class='btn btn-info'>
@@ -38,7 +37,7 @@
 
         {% endif %}
     </span>
-    <a href="{% url 'createandshow' %}" class='btn btn-secondary my-2'>home</a>
+    <a href="" class='btn btn-secondary my-2'>home</a>
 
     </div>
     
@@ -63,8 +62,8 @@
                     <td>{{s.email}}</td>
                     <td>{{s.password}}</td>
                     <td>
-                        <a href="{% url 'deletedata' s.pk %}" class='btn btn-sm btn-danger'>delete</a>
-                        <a href="{% url 'updatedata' s.pk %}" class='btn btn-sm btn-primary'>update</a>
+                        <a href="" class='btn btn-sm btn-danger'>delete</a>
+                        <a href="" class='btn btn-sm btn-primary'>update</a>
 
                     </td>
                 </tr>

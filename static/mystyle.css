@@ -7,6 +7,7 @@
     box-shadow: 10px 10px 5px grey;
     padding: 10px;
 
+
 }
 
 .divclass2{
@@ -15,7 +16,7 @@
     float: right;
     margin-top: 30px;
     /* clear: right; */
-
+   
     
 }
 span{
@@ -68,15 +69,43 @@ tr:hover{
     height: 70px;
     border: 2px groove red;
 }
+
+#divid1:hover #divid2{
+    visibility: visible;
+    
+}
 h1:hover{
     font-weight: bold;
     font-size: 50px;
     color: darkblue;
     text-shadow: 5px 10px 50px red;
+    
 }
 
+#divid2{
+    visibility: hidden;
+    
+    
+}
 
-
+#butid1,#butid2{
+    color:blue;
+    background-color:aquamarine;
+    padding: 10px;
+    border-radius: 20px;
+}
+#butid1:hover{
+    background-color: green;
+    color: white;
+    height: 80px;
+    border: 3px solid white;
+}
+#butid2:hover{
+    background-color: green;
+    color: white;
+    height: 80px;
+    border: 3px solid white;
+}
 
 @media (min-width:50px) and (max-width:850px){
   .divclass1{

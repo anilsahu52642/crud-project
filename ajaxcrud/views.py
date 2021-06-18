@@ -1,11 +1,11 @@
 from django.shortcuts import render,HttpResponseRedirect
-from .forms import studentform
-from .models import student
+from djangocrud.forms import studentform
+from djangocrud.models import student
 from django.contrib import messages
 
 
 
-def createandshow(request):
+def createandshow2(request):
     if request.method=='POST':
         stud=studentform(request.POST)
         if stud.is_valid():
@@ -15,10 +15,10 @@ def createandshow(request):
             messages.error(request,'some data enered is incorrect.....')    
     studdata=student.objects.all()
     stud=studentform
-    return render(request,'home1.html',{'form':stud,'studdata':studdata})
+    return render(request,'home2.html',{'form':stud,'studdata':studdata})
 
 
-def delete(request,pk):
+def delete2(request,pk):
     
     stdata=student.objects.get(id=pk)
     stdata.delete()
@@ -26,7 +26,7 @@ def delete(request,pk):
     return HttpResponseRedirect('/create/')
 
 
-def update(request,id):
+def update2(request,id):
     if request.method=='POST':
         studata1=student.objects.get(pk=id)
         studata2=studentform(request.POST,instance=studata1)
